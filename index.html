@@ -2,19 +2,29 @@
 layout: default
 ---
 
-<div class="home">
+<header>
+  <h1>Hi there</h1>
+</header>
 
-  <h1>Posts</h1>
+<article>
+  <p>
+    Bit is a podcast about games, movies, design &amp; development from the
+    mouths of <a href="https://twitter.com/daviddarnes">@DavidDarnes</a>,
+    <a href="https://twitter.com/BenjaminReid">@BenjaminReid</a>,
+    <a href="https://twitter.com/Jazzybam">@Jazzybam</a> &amp;
+    <a href="https://twitter.com/iamkeir">@iamkeir</a>.
+  </p>
+</article>
 
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+{% for post in site.posts %}
+<article>
+  <h2>
+    <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a>
+  </h2>
+  <p>EXCERPT</p>
+  <audio src="https://s3-eu-west-1.amazonaws.com/bitpodcasts/episode-7.mp3" preload="auto" controls="controls" type="audio/mp3">
+    Your browser doesn't support the <code>audio</code> element.
+  </audio>
+  <a href="https://s3-eu-west-1.amazonaws.com/bitpodcasts/episode-7.mp3" class="button">Download</a>
+</article>
+{% endfor %}

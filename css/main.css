@@ -28,15 +28,15 @@ body {
   width: 100%;
   display: block;
   padding: 1em 0 1.2em 0;
-  text-shadow: 0 1px 4px fadeout(black, 70%); }
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); }
   .logo a {
     font-weight: 300;
     color: white;
-    color: fadeout(white, 20%); }
+    color: rgba(255, 255, 255, 0.8); }
     .logo a:hover {
       color: white; }
     .logo a:active {
-      color: fadeout(white, 20%); }
+      color: rgba(255, 255, 255, 0.8); }
 
 section {
   max-width: 400px;
@@ -48,10 +48,10 @@ section {
   -moz-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: 0 1px 4px fadeout(black, 70%);
-  -moz-box-shadow: 0 1px 4px fadeout(black, 70%);
-  -o-box-shadow: 0 1px 4px fadeout(black, 70%);
-  box-shadow: 0 1px 4px fadeout(black, 70%); }
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); }
   section section {
     margin: 0;
     padding: 0;
@@ -163,7 +163,7 @@ a {
   a:active {
     color: #490631; }
   a.active {
-    color: fadeout(#610841, 50%); }
+    color: rgba(97, 8, 65, 0.5); }
 
 small {
   font-weight: 400;
@@ -388,7 +388,7 @@ a {
   a:active {
     color: #8a2c2a; }
   a.active {
-    color: fadeout(#c43f3c, 50%); }
+    color: rgba(196, 63, 60, 0.5); }
 
 .button {
   float: left;
@@ -411,9 +411,9 @@ a {
     background: #762624; }
 
 .logo a {
-  color: fadeout(#f8393a, 40%); }
+  color: rgba(248, 57, 58, 0.6); }
   .logo a:hover {
-    color: fadeout(#f8393a, 10%); }
+    color: rgba(248, 57, 58, 0.9); }
 
 section {
   background: #fffaff;

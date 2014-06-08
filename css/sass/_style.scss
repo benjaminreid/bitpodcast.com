@@ -16,7 +16,7 @@ $links: #610841;
 $borders: lighten($copy, 55%);
 $success: #00B800;
 $error: #ff0000;
-$shadows: fadeout(#000000, 70%);
+$shadows: fade-out(#000000, 0.7);
 
 @mixin transition($duration:0.2s, $ease:ease-out) {
   -webkit-transition: all $duration $ease;
@@ -72,12 +72,12 @@ body {
   a {
     font-weight: 300;
     color: $backgrounds; // IE 7 & 8 doesn't understand rgba values
-    color: fadeout($backgrounds, 20%);
+    color: fade-out($backgrounds, 0.2);
     &:hover {
       color: $backgrounds;
     }
     &:active {
-      color: fadeout($backgrounds, 20%);
+      color: fade-out($backgrounds, 0.2);
     }
   }
 }
@@ -237,7 +237,7 @@ a {
   }
   // Faded purple (used in menu)
   &.active {
-    color: fadeout($links, 50%);
+    color: fade-out($links, 0.5);
   }
 }
 

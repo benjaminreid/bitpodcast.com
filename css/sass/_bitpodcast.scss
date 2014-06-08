@@ -45,7 +45,7 @@ a {
     color: darken($links, 15%);
   }
   &.active {
-    color: fadeout($links, 50%);
+    color: fade-out($links, 0.5);
   }
 }
 .button {
@@ -69,9 +69,9 @@ a {
 
 // On Page sections
 .logo a {
-  color: fadeout($title, 40%);
+  color: fade-out($title, 0.4);
   &:hover {
-    color: fadeout($title, 10%);
+    color: fade-out($title, 0.1);
   }
 }
 section {

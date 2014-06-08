@@ -378,7 +378,7 @@ Licence: http://licence.visualidiot.com
 */
 body {
   font-family: 'Podkova', serif;
-  background: #fffaff url("bg_bit.jpg") center;
+  background: #fffaff url("../images/bg_bit.jpg") center;
   background-size: cover; }
 
 a {

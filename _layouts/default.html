@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ site.description }}">
 
-  {% include head.html %}
+    <link href='http://fonts.googleapis.com/css?family=Podkova:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
-    <body>
+    <!--Damn IE 8 & 7 -->
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
 
-    {% include header.html %}
-
-    <div class="page-content">
-      <div class="wrap">
-      {{ content }}
-      </div>
+    <div class="logo">
+      <a href="/">Bit Podcast</a>
     </div>
 
-    {% include footer.html %}
+    <section>
 
-    </body>
+      {{ content }}
+
+      <footer>
+        <a href="https://twitter.com/bit_podcast" class="twitter-follow-button" data-show-count="false" data-size="small" data-dnt="true">Follow @bit_podcast</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <small class="credit">
+          <a href="" title="RSS feed">RSS</a> | Based on <a href="https://github.com/daviddarnes/ticket" title="Ticket: GitHub">Ticket</a> for <a href="http://anchorcms.com" title="Anchor CMS Homepage">Anchor CMS</a><!-- , Created by <a href="http://david.darn.es" title="David Darnes: Designer">David Darnes</a> --></small>
+      </footer>
+
+    </section>
+
+  </body>
 </html>

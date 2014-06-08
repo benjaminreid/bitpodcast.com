@@ -1,0 +1,493 @@
+/*
+Theme: Ticket
+Description: A theme that cuts to the chase, made for Anchor CMS. Uses Anchor to its full potential.
+Demo: http://demo.anchorthemes.com/ticket
+Author: David Darnes
+Author URI: http://david.darn.es
+Licence: http://licence.visualidiot.com
+*/
+
+
+//// Mixins
+$backgrounds: #ffffff;
+$copy: #666666;
+$titles: darken($copy, 10%);
+$links: #610841;
+$borders: lighten($copy, 55%);
+$success: #00B800;
+$error: #ff0000;
+$shadows: fadeout(#000000, 70%);
+
+@mixin transition($duration:0.2s, $ease:ease-out) {
+  -webkit-transition: all $duration $ease;
+  -moz-transition: all $duration $ease;
+  -o-transition: all $duration $ease;
+  transition: all $duration $ease;
+}
+
+@mixin border-radius($corners: 3px) {
+  -webkit-border-radius: $corners;
+  -moz-border-radius: $corners;
+  -o-border-radius: $corners;
+  border-radius: $corners;
+}
+
+@mixin box-shadow($shadow: 0 1px 4px $shadows) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -o-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+
+//// Globals
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: darken($links, 5%) url(bg.jpg) center;
+  background-size: cover;
+  color: $copy;
+  font: 13px/23px "Helvetica Neue", "Arial", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  -webkit-text-size-adjust: none;
+}
+
+
+//// Structure
+// Title outside wrapper
+.logo {
+  font-size: 3em;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding: 1em 0 1.2em 0;
+  text-shadow: 0 1px 4px $shadows;
+  a {
+    font-weight: 300;
+    color: $backgrounds; // IE 7 & 8 doesn't understand rgba values
+    color: fadeout($backgrounds, 20%);
+    &:hover {
+      color: $backgrounds;
+    }
+    &:active {
+      color: fadeout($backgrounds, 20%);
+    }
+  }
+}
+
+// Site wrapper
+section {
+  max-width: 400px;
+  margin: 0 auto 4em auto;
+  background: $backgrounds;
+  padding: 15px 20px 10px;
+  clear: both;
+  @include border-radius();
+  @include box-shadow();
+  // Reset for article sections
+  section {
+    margin: 0;
+    padding: 0;
+    padding: 0 0 .6em;
+    @include box-shadow(none);
+  }
+}
+
+// Top nav
+nav {
+  float: right;
+  text-align: right;
+  line-height: 2.45em;
+  a {
+    margin-left: .55em;
+  }
+}
+
+// Column width (half the site width)
+header, nav, aside {
+  width: 200px;
+}
+
+// Nothing that comes after these are getting past
+article, form, footer, hr {
+  clear: both;
+}
+
+// Left positioned things
+header, aside, input, textarea, label {
+  float: left;
+}
+
+footer {
+  min-height: 24px;
+  small {
+    margin-bottom: 0;
+  }
+}
+
+// Right positioned things
+nav, .credit {
+  float: right;
+}
+
+// Divider line
+article, footer, [class*="author-"], .comments, form, aside {
+  border-top: 1px solid $borders;
+  padding: 1em 0 .8em;
+}
+
+// Makes images go flush to the width of the site
+figure {
+  margin: -1.7em -20px 0;
+  padding: .6em 0;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+//// Typography
+// Reset (avoid any weird positioning and italics)
+h1, h2, h3, h4, h5, h6, p, a, small, ul, li, blockquote, code, strong, input, textarea {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $titles;
+  font-weight: 400;
+  // Keeps weight for linked headings
+  a {
+    font-weight: inherit;
+  }
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 2em;
+  line-height: 1.3em;
+  padding-bottom: .5em;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.8em;
+  line-height: 1.3em;
+  padding-bottom: 0.2em;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  padding-bottom: .4em;
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 1em;
+  line-height: 1.5em;
+  padding-bottom: .5em;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: .8em;
+  line-height: 1.8em;
+  padding-bottom: 1em;
+}
+
+// Optional caption type
+h6 {
+  color: lighten($copy, 10%);
+  font-style: italic;
+  font-weight: 300;
+  font-size: .7em;
+  line-height: 1.8em;
+  padding-bottom: 1em;
+}
+
+p, legend {
+  font-size: 1em;
+  line-height: 1.8em;
+  padding-bottom: .5em;
+}
+
+a {
+  font-weight: 500;
+  color: $links;
+  @include transition();
+  text-decoration: none;
+  // Bright purple
+  &:hover {
+    color: lighten($links, 10%);
+  }
+  // Dark purple
+  &:active {
+    color: darken($links, 5%);
+  }
+  // Faded purple (used in menu)
+  &.active {
+    color: fadeout($links, 50%);
+  }
+}
+
+// Footer meta info (timestamp, category and breadcrumb)
+small {
+  font-weight: 400;
+  color: lighten($copy, 20%);
+  margin-bottom: 1.2em;
+  display: inline-block;
+  // Keep links in check in smalls
+  a {
+    font-weight: inherit;
+  }
+}
+
+ul {
+  padding: 0 0 1em 1.3em;
+  list-style: disc;
+  li {
+    color: $copy;
+    padding-bottom: .2em;
+    line-height: 1.7em;
+  }
+}
+
+aside ul {
+  padding-bottom: 0;
+}
+
+// Massive quotes
+blockquote {
+  margin: 0;
+  padding: 1em;
+  font-weight: 300;
+  font-size: 2em;
+  color: lighten($copy, 20%);
+  // Paragraph inside quotes needs resetting
+  p {
+    padding: 0;
+    line-height: 1.2em;
+  }
+}
+
+// Subtle border and background to give focus to code snippets
+code {
+  font-family: Courier New, Courier, monospace;
+  border: 1px solid lighten($copy, 50%);
+  background: lighten($copy, 58%);
+  @include border-radius();
+  padding: .2em .4em;
+}
+
+// Make sure its bold
+strong {
+  font-weight: 500;
+}
+
+// Thin subtle line
+hr {
+  height: 1px;
+  border: 0;
+  background: $borders;
+  margin: 0 0 1em;
+}
+
+// Credits
+.credit a {
+  color: $copy;
+  &:hover {
+    color: darken($copy, 20%);
+  }
+}
+
+// Selection
+::selection {
+  background: $links; // Safari
+  color: $backgrounds;
+  }
+::-moz-selection {
+  background: $links; // Firefox
+  color: $backgrounds;
+}
+
+
+//// Forms
+// Used to split fields apart
+form p {
+  display: inline-block;
+  padding-bottom: 1em;
+  clear: both;
+}
+
+// Style inspired by Anchor CMS fields
+input, textarea {
+  -webkit-appearance: none; // Stop webkit ugly styling
+  min-width: 231px; // Keeps fields going full width
+  min-height: 29px; // Keeps fields in check in Firefox
+  border: 0;
+  outline: none;
+  background: darken($backgrounds, 6%);
+  padding: .38em 1em;
+  @include border-radius(0 3px 3px 0);
+  line-height: 2.3em;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  color: lighten($copy, 10%);
+  @include transition();
+  // Slightly lighter when typing in the field
+  &:focus {
+    background: darken($backgrounds, 3%);
+  }
+}
+
+// Clears webkit styling for search field (#term is for Firefox, which doesn't recognise type=search for some reason)
+input[type="search"], #term {
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    display: none;
+  }
+}
+
+textarea {
+  @include border-radius(0 3px 3px 3px);
+  min-height: 100px; // Big enough to write in comfortably
+}
+
+// Matching labels next to fields, flush to each other
+label {
+  display: inline-block;
+  background: darken($backgrounds, 10%);
+  padding: 0 1em;
+  @include border-radius(3px 0 0 3px);
+  line-height: 3em;
+  min-width: 116px;
+}
+
+// Nice placeholder colour
+::-webkit-input-placeholder {
+   color: lighten($copy, 20%);
+}
+
+:-moz-placeholder {
+   color: lighten($copy, 20%);
+}
+
+::-moz-placeholder {
+   color: lighten($copy, 20%);
+}
+
+:-ms-input-placeholder {
+   color: lighten($copy, 20%);
+}
+
+// Dark but not loud buttons
+input[type="submit"], button[type="submit"] {
+  min-width: inherit;
+  min-height: 40px; // Keeps buttons in check on Firefox
+  border: 0;
+  outline: none;
+  background: darken($backgrounds, 35%);
+  padding: 0 1.2em;
+  margin: 0;
+  border-radius: 3px;
+  line-height: 2em;
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  color: $backgrounds;
+  cursor: pointer;
+  @include transition();
+  line-height: 3em;
+  // Darken on holder
+  &:hover {
+    background: darken($backgrounds, 45%);
+  }
+  // Even darker on click
+  &:active {
+    background: darken($backgrounds, 55%);
+  }
+}
+
+// Match fields up with everything else
+label, input, textarea, button {
+  font-size: 1em;
+}
+
+
+//// Comments
+.comments {
+  // Title needs to take a step back from comments
+  h3 {
+    color: lighten($copy, 10%);
+  }
+  // Clear general styling for lists
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  // Keep comments apart
+  li {
+    padding-bottom: .4em;
+  }
+  // Keep the timestamp close
+  p {
+    padding-bottom: .2em;
+  }
+}
+
+// Notes for comment form user
+.notifications {
+  text-align: center;
+  p {
+    display: block;
+    width: 100%;
+    padding: .55em 0;
+    margin-bottom: .75em;
+    @include border-radius();
+    background: darken($backgrounds, 10%);
+    border: 1px solid darken($backgrounds, 30%);
+    // Its worked
+    &.success {
+      background: lighten($success, 60%);
+      border: 1px solid $success;
+    }
+    // Its not worked
+    &.error {
+      background: lighten($error, 45%);
+      border: 1px solid $error;
+    }
+  }
+}
+
+
+//// Mobile
+@media (max-width: 440px) {
+  header, nav, aside {
+    float: none;
+    width: 100%;
+  }
+  section {
+    border-radius: 0;
+  }
+  input, textarea {
+    width: 93%;
+    @include border-radius(0 3px 3px 3px);
+  }
+  input[type="submit"] {
+    width: auto;
+  }
+  input[type="search"] {
+    width: 100%;
+  }
+  label {
+    @include border-radius(3px 3px 0 0)
+  }
+}

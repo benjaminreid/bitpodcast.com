@@ -1,15 +1,16 @@
 ---
 layout: default
 ---
-<div class="post">
+<header>
+  <h1>{{ page.title }}</h1>
+</header>
 
-  <header class="post-header">
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
-
-  <article class="post-content">
+<article>
   {{ content }}
-  </article>
+</article>
 
-</div>
+<audio src="{{ page.file }}" preload="auto" controls="controls" type="audio/mp3">
+  Your browser doesn't support the <code>audio</code> element.
+</audio>
+
+<a href="{{ post.file }}" class="button">Download</a>

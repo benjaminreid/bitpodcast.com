@@ -4,6 +4,8 @@ email: benjaminreid.nouveller@gmail.com
 description: "A few people talking about things"
 baseurl: ""
 url: "http://bitpodcast.com"
+paginate: 5
+paginate_path: "posts/:num"
 
 # Build settings
 markdown: kramdown

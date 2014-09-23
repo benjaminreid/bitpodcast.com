@@ -16,7 +16,7 @@ layout: default
   </p>
 </article>
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
 <article>
   <h2>
     <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
@@ -30,3 +30,16 @@ layout: default
   <a href="{{ post.file }}" class="button">Download</a>
 </article>
 {% endfor %}
+
+<nav class="pagination">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+    <a href="/" class="previous">← Newer</a>
+    {% else %}
+    <a href="/posts/{{ paginator.previous_page }}" class="previous">← Newer</a>
+    {% endif %}
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="/posts/{{ paginator.next_page }}" class="next">Older →</a>
+  {% endif %}
+</nav>

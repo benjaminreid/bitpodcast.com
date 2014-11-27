@@ -1,0 +1,79 @@
+---
+layout: nil
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+
+<channel>
+
+<title>{{ site.title }}</title>
+
+<link>{{ site.url }}</link>
+
+<language>{{ site.lang }}</language>
+
+<copyright>{{ site.author }}</copyright>
+
+<itunes:subtitle>{{ site.description }}</itunes:subtitle>
+
+<itunes:author>{{ site.author }}</itunes:author>
+
+<itunes:keywords>design,development,dev,web,code,front-end,games,gaming,david,darnes,benjamin,reid</itunes:keywords>
+
+<itunes:summary>{{ site.description }}</itunes:summary>
+
+<description>{{ site.description }}</description>
+
+<itunes:owner>
+
+	<itunes:name>{{ site.author }}</itunes:name>
+
+	<itunes:email>{{ site.email }}</itunes:email>
+
+</itunes:owner>
+
+<itunes:image href="{{ site.url }}/images/itunes.png" />
+
+<itunes:category text="Design, Development &amp; Games" />
+
+<itunes:category text="Design" />
+
+<itunes:category text="Development" />
+
+<itunes:category text="Games" />
+
+<itunes:new-feed-url>{{ site.url }}/podcast.xml</itunes:new-feed-url>
+
+ {% for post in site.posts limit:10 %}
+
+	<item>
+
+		<title>{{ post.title }}</title>
+
+		<itunes:author>{{ site.author }}</itunes:author>
+
+		<itunes:subtitle>{{ site.title }}: {{ post.title }}</itunes:subtitle>
+
+		<itunes:summary>{{ post.content | xml_escape }}</itunes:summary>
+
+		<itunes:image href="{{ site.url }}/images/itunes.png" />
+
+		<enclosure url="{{ post.link }}" length="{{ post.length }}" type="audio/x-m4a" />
+
+		<guid>{{ site.url }}/{{ post.url }}</guid>
+
+		<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S" }} GMT</pubDate>
+
+		<itunes:duration>{{ post.duration }}</itunes:duration>
+
+		<itunes:keywords>design,development,dev,web,code,front-end,games,gaming,david,darnes,benjamin,reid</itunes:keywords>
+
+	</item>
+
+ {% endfor %}
+
+</channel>
+
+</rss>

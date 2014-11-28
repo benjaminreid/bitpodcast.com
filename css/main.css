@@ -213,11 +213,6 @@ hr {
   background: #f2f2f2;
   margin: 0 0 1em; }
 
-.credit a {
-  color: #666666; }
-  .credit a:hover {
-    color: #333333; }
-
 ::selection {
   background: #610841;
   color: white; }

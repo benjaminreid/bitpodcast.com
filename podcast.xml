@@ -62,7 +62,7 @@ layout: none
 
 		<enclosure url="{{ post.link }}" length="{{ post.length }}" type="audio/x-m4a" />
 
-		<guid>{{ site.url }}/{{ post.url }}</guid>
+		<guid>{{ site.url }}{{ post.url }}</guid>
 
 		<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S" }} GMT</pubDate>
 

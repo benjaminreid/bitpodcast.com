@@ -10,3 +10,7 @@ paginate_path: "posts/:num"
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+# Podcast settings
+lang: en
+author: David Darnes and Benjamin Reid

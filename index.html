@@ -24,10 +24,17 @@ layout: default
     </a>
   </h2>
   <p>{{ post.excerpt }}</p>
+  {% if post.file %}
   <audio src="{{ post.file }}" preload="auto" controls="controls" type="audio/mp3">
     Your browser doesn't support the <code>audio</code> element.
   </audio>
+
   <a href="{{ post.file }}" class="button">Download</a>
+  {% endif %}
+
+  {% if post.soundcloud %}
+  {{ post.soundcloud }}
+  {% endif %}
 </article>
 {% endfor %}
 

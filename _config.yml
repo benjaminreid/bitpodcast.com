@@ -3,7 +3,7 @@ title: Bit Podcast
 email: benjaminreid.nouveller@gmail.com
 description: "A few people talking about things"
 baseurl: ""
-url: "http://bitpodcast.com"
+url: "https://bitpodcast.com"
 paginate: 5
 paginate_path: "posts/:num"
 

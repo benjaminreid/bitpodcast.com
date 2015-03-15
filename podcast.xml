@@ -46,7 +46,7 @@ layout: none
 
 <itunes:new-feed-url>{{ site.url }}/podcast.xml</itunes:new-feed-url>
 
- {% for post in site.posts limit:10 %}
+ {% for post in site.posts %}
 
 	<item>
 
@@ -60,7 +60,7 @@ layout: none
 
 		<itunes:image href="{{ site.url }}/images/itunes.png" />
 
-		<enclosure url="{{ post.file }}" length="{{ post.length }}" type="audio/x-m4a" />
+		<enclosure url="{{ post.file_itunes }}" length="{{ post.length }}" type="audio/x-m4a" />
 
 		<guid>{{ site.url }}{{ post.url }}</guid>
 

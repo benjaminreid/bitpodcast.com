@@ -16,7 +16,7 @@ layout: none
 		<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
 		<image>
 			<link>{{ site.url }}</link>
-			<url>{{ site.url }}/images/itunes.png</url>
+			<url>http://bitpodcast.com/images/itunes.png</url>
 			<title>{{ site.title }}</title>
 		</image>
 		<itunes:subtitle>{{ site.description | xml_escape }}</itunes:subtitle>

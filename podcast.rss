@@ -5,7 +5,7 @@ layout: none
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xml:lang="en-GB">
 	<channel>
 		<atom:link href="{{ site.url }}/podcast.rss" rel="self" type="application/rss+xml" />
-		<title>The {{ site.title }}</title>
+		<title>{{ site.title }}</title>
 		<description>{{ site.description | xml_escape }}</description>
 		<link>{{ site.url }}</link>
 		<language>{{ site.lang }}</language>
@@ -45,7 +45,7 @@ layout: none
 				<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 				<description>{{ post.content | xml_escape }}</description>
 				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
-				<enclosure url="{{ post.file }}" length="{{ post.duration }}" type="audio/mp3"/>
+				<enclosure url="http:{{ post.file }}" length="{{ post.duration }}" type="audio/mp3"/>
 				<itunes:author>{{ site.author }}</itunes:author>
 				<itunes:subtitle>{{ site.title }}: {{ post.title }}</itunes:subtitle>
 				<itunes:summary>{{ post.content | xml_escape }}</itunes:summary>

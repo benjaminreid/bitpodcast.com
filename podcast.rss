@@ -37,12 +37,12 @@ layout: none
 				<title>{{ post.title }}</title>
 				<link>{{ site.url }}/{{ post.url }}</link>
 				<pubDate>{{ post.date | date: "%a, %d %b %Y" }}</pubDate>
-				<description>{{ post.content }}</description>
+				<description>{{ post.content | xml_escape }}</description>
 				<guid isPermaLink="true">{{ post.link }}</guid>
 				<enclosure url="{{ post.file }}" length="{{ post.duration }}" type="audio/mp3"/>
 				<itunes:author>{{ post.author }}</itunes:author>
 				<itunes:subtitle></itunes:subtitle>
-				<itunes:summary>{{ post.content }}</itunes:summary>
+				<itunes:summary>{{ post.content | xml_escape }}</itunes:summary>
 				<itunes:duration>{{ post.duration }}</itunes:duration>
 				<itunes:keywords>design,development,dev,web,code,front-end,games,gaming,david,darnes,benjamin,reid</itunes:keywords>
 				<itunes:image href="{{ site.url }}/images/itunes.png" />

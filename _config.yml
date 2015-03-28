@@ -14,3 +14,7 @@ permalink: pretty
 # Podcast settings
 lang: en
 author: David Darnes and Benjamin Reid
+
+# Jekyll plugins
+gems:
+- jekyll-mentions

@@ -8,11 +8,11 @@ layout: none
 		<description>{{ site.description }}</description>
 		<link>{{ site.url }}</link>
 		<language>{{ site.lang }}</language>
-		<managingEditor>{{ site.author }} ({{ site.email }})</managingEditor>
-		<webMaster>{{ site.author }} ({{ site.email }})</webMaster>
+		<managingEditor>{{ site.email }}</managingEditor>
+		<webMaster>{{ site.email }}</webMaster>
 		<copyright>2014-{{ site.time | "%Y" }} {{ site.title }}</copyright>
-		<pubDate>{{ site.time | date: "%a, %d %b %Y" }}</pubDate>
-		<lastBuildDate>{{ site.time | date: "%a, %d %b %Y" }}</lastBuildDate>
+		<pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+		<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
 		<image>
 			<link>{{ site.url }}</link>
 			<url>{{ site.url }}/images/itunes.png</url>
@@ -27,7 +27,7 @@ layout: none
 			<itunes:email>{{ site.email }}</itunes:email>
 		</itunes:owner>
 		<itunes:image href="{{ site.url }}/images/itunes.png" />
-		<itunes:category text="Design, Development &amp; Games">
+		<itunes:category text="Technology">
 			<itunes:category text="Design" />
 			<itunes:category text="Development" />
 			<itunes:category text="Games" />
@@ -36,9 +36,9 @@ layout: none
 			<item>
 				<title>{{ post.title }}</title>
 				<link>{{ site.url }}/{{ post.url }}</link>
-				<pubDate>{{ post.date | date: "%a, %d %b %Y" }}</pubDate>
+				<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 				<description>{{ post.content | xml_escape }}</description>
-				<guid isPermaLink="true">{{ post.link }}</guid>
+				<guid isPermaLink="true">{{ post.url }}</guid>
 				<enclosure url="{{ post.file }}" length="{{ post.duration }}" type="audio/mp3"/>
 				<itunes:author>{{ post.author }}</itunes:author>
 				<itunes:subtitle></itunes:subtitle>

@@ -2,15 +2,15 @@
 layout: none
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xml:lang="en-GB">
 	<channel>
 		<atom:link href="{{ site.url }}/podcast.xml" rel="self" type="application/rss+xml" />
 		<title>{{ site.title }}</title>
-		<description>{{ site.description }}</description>
+		<description>{{ site.description | xml_escape }}</description>
 		<link>{{ site.url }}</link>
 		<language>{{ site.lang }}</language>
 		<managingEditor>{{ site.email }} ({{ site.author }})</managingEditor>
-		<webMaster>{{ site.email }}</webMaster>
+		<webMaster>{{ site.email }} ({{ site.author }})</webMaster>
 		<copyright>2014-{{ site.time | "%Y" }} {{ site.title }}</copyright>
 		<pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
 		<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
@@ -19,9 +19,9 @@ layout: none
 			<url>{{ site.url }}/images/itunes.png</url>
 			<title>{{ site.title }}</title>
 		</image>
-		<itunes:subtitle>{{ site.description }}</itunes:subtitle>
+		<itunes:subtitle>{{ site.description | xml_escape }}</itunes:subtitle>
 		<itunes:author>{{ site.author }}</itunes:author>
-		<itunes:summary>{{ site.description }}</itunes:summary>
+		<itunes:summary>{{ site.description | xml_escape }}</itunes:summary>
 		<itunes:keywords>design,development,dev,web,code,front-end,games,gaming,david,darnes,benjamin,reid</itunes:keywords>
 		<itunes:owner>
 			<itunes:name>{{ site.author }}</itunes:name>
@@ -33,6 +33,7 @@ layout: none
 			<itunes:category text="Development" />
 			<itunes:category text="Games" />
 		</itunes:category>
+		<itunes:explicit>yes</itunes:explicit>
 		{% for post in site.posts %}
 			<item>
 				<title>{{ post.title }}</title>

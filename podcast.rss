@@ -2,13 +2,14 @@
 layout: none
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
+		<atom:link href="{{ site.url }}/podcast.xml" rel="self" type="application/rss+xml" />
 		<title>{{ site.title }}</title>
 		<description>{{ site.description }}</description>
 		<link>{{ site.url }}</link>
 		<language>{{ site.lang }}</language>
-		<managingEditor>{{ site.email }}</managingEditor>
+		<managingEditor>{{ site.email }} ({{ site.author }})</managingEditor>
 		<webMaster>{{ site.email }}</webMaster>
 		<copyright>2014-{{ site.time | "%Y" }} {{ site.title }}</copyright>
 		<pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
@@ -35,10 +36,10 @@ layout: none
 		{% for post in site.posts %}
 			<item>
 				<title>{{ post.title }}</title>
-				<link>{{ site.url }}/{{ post.url }}</link>
+				<link>{{ site.url }}{{ post.url }}</link>
 				<pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 				<description>{{ post.content | xml_escape }}</description>
-				<guid isPermaLink="true">{{ post.url }}</guid>
+				<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
 				<enclosure url="{{ post.file }}" length="{{ post.duration }}" type="audio/mp3"/>
 				<itunes:author>{{ post.author }}</itunes:author>
 				<itunes:subtitle></itunes:subtitle>

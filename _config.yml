@@ -18,3 +18,5 @@ author: David Darnes and Benjamin Reid
 # Jekyll plugins
 gems:
 - jekyll-mentions
+
+jekyll-mentions: https://twitter.com

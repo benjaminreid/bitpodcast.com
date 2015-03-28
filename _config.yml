@@ -1,7 +1,7 @@
 # Site settings
 title: Bit Podcast
 email: benjaminreid.nouveller@gmail.com
-description: "Bit Podcast is an ongoing series about games, design &amp; development from the mouths of @DavidDarnes and @BenjaminReid"
+description: "Bit Podcast is an ongoing series about games, design & development from the mouths of @DavidDarnes and @BenjaminReid"
 baseurl: ""
 url: "https://bitpodcast.com"
 paginate: 5

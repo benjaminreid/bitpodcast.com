@@ -18,5 +18,6 @@ author: David Darnes and Benjamin Reid
 # Jekyll plugins
 gems:
 - jekyll-mentions
-
+- jekyll-redirect-from
+  
 jekyll-mentions: https://twitter.com

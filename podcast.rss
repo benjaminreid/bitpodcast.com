@@ -6,45 +6,47 @@ layout: none
 	<channel>
 		<title>{{ site.title }}</title>
 		<description>{{ site.description }}</description>
-		<link>{{ site.baseurl }}</link>
-		<language>en</language>
-		<managingEditor>{{ site.managerName }} ({{ site.managerEmail }})</managingEditor>
-		<webMaster>{{ site.managerName }} ({{ site.managerEmail }})</webMaster>
-		<copyright>2014-{{site.time | "%Y" }} {{ site.organizationName }}</copyright>
+		<link>{{ site.url }}</link>
+		<language>{{ site.lang }}</language>
+		<managingEditor>{{ site.author }} ({{ site.email }})</managingEditor>
+		<webMaster>{{ site.author }} ({{ site.email }})</webMaster>
+		<copyright>2014-{{ site.time | "%Y" }} {{ site.title }}</copyright>
 		<pubDate>{{ site.time | date: "%a, %d %b %Y" }}</pubDate>
 		<lastBuildDate>{{ site.time | date: "%a, %d %b %Y" }}</lastBuildDate>
 		<image>
-			<link>{{ site.baseurl}}</link>
-			<url>{{ site.squareLogo}}</url>
+			<link>{{ site.url }}</link>
+			<url>{{ site.url }}/images/itunes.png</url>
 			<title>{{ site.title }}</title>
 		</image>
-		<itunes:subtitle>{{ site.podcastSubtitle }}</itunes:subtitle>
-		<itunes:author>{{ site.organizationName }}</itunes:author>
-		<itunes:summary></itunes:summary>
-		<itunes:keywords></itunes:keywords>
+		<itunes:subtitle>{{ site.description }}</itunes:subtitle>
+		<itunes:author>{{ site.author }}</itunes:author>
+		<itunes:summary>{{ site.description }}</itunes:summary>
+		<itunes:keywords>design,development,dev,web,code,front-end,games,gaming,david,darnes,benjamin,reid</itunes:keywords>
 		<itunes:owner>
-			<itunes:name>{{ site.managerName}}</itunes:name>
-			<itunes:email>{{ site.managerEmail}}</itunes:email>
+			<itunes:name>{{ site.author }}</itunes:name>
+			<itunes:email>{{ site.email }}</itunes:email>
 		</itunes:owner>
-		<itunes:image href="{{ site.squareLogo}}" />
-		<itunes:category text="Religion &amp; Spirituality">
-			<itunes:category text="Christianity" />
+		<itunes:image href="{{ site.url }}/images/itunes.png" />
+		<itunes:category text="Design, Development &amp; Games">
+			<itunes:category text="Design" />
+			<itunes:category text="Development" />
+			<itunes:category text="Games" />
 		</itunes:category>
 		{% for post in site.posts %}
 			<item>
 				<title>{{ post.title }}</title>
-				<link>{{ site.baseurl }}/{{ post.url }}</link>
+				<link>{{ site.url }}/{{ post.url }}</link>
 				<pubDate>{{ post.date | date: "%a, %d %b %Y" }}</pubDate>
-				<description>{{ post.description }}</description>
+				<description>{{ post.content }}</description>
 				<guid isPermaLink="true">{{ post.link }}</guid>
-				<enclosure url="{{ post.link }}" length="{{ post.length }}" type="audio/mp3"/>
-				<itunes:author>{{ post.speaker }}</itunes:author>
+				<enclosure url="{{ post.file }}" length="{{ post.duration }}" type="audio/mp3"/>
+				<itunes:author>{{ post.author }}</itunes:author>
 				<itunes:subtitle></itunes:subtitle>
-				<itunes:summary>{{ post.description }}</itunes:summary>
-				<itunes:duration>{{ post.podcastLength }}</itunes:duration>
-				<itunes:keywords>{{ post.keywords }}</itunes:keywords>
-				<itunes:image href="{% if post.image %}{{ post.image }}{% else %}{{site.squareLogo}}{% endif %}" />
-				<itunes:explicit>no</itunes:explicit>
+				<itunes:summary>{{ post.content }}</itunes:summary>
+				<itunes:duration>{{ post.duration }}</itunes:duration>
+				<itunes:keywords>design,development,dev,web,code,front-end,games,gaming,david,darnes,benjamin,reid</itunes:keywords>
+				<itunes:image href="{{ site.url }}/images/itunes.png" />
+				<itunes:explicit>yes</itunes:explicit>
 			</item>
 		{% endfor %}
 	</channel>

@@ -68,9 +68,6 @@ nav {
   nav a {
     margin-left: .55em; }
 
-header, nav, aside {
-  width: 200px; }
-
 article, form, footer, hr {
   clear: both; }
 

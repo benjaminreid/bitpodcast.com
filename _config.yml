@@ -6,6 +6,13 @@ baseurl: ""
 url: "https://bitpodcast.com"
 paginate: 5
 paginate_path: "posts/:num"
+logo: "https://pbs.twimg.com/profile_images/378800000000857377/558e6da9b796157ee71eb5ba111dfe56_400x400.png"
+
+twitter:
+  username: BitPodcast
+
+author:
+  twitter: BitPodcast
 
 # Build settings
 markdown: kramdown
@@ -19,5 +26,6 @@ author: David Darnes and Benjamin Reid
 gems:
 - jekyll-mentions
 - jekyll-redirect-from
+- jekyll-seo-tag
   
 jekyll-mentions: https://twitter.com

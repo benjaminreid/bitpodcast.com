@@ -1,5 +1,5 @@
 ---
-layout: none
+layout:
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xml:lang="en-GB">
@@ -11,7 +11,7 @@ layout: none
 		<language>{{ site.lang }}</language>
 		<managingEditor>{{ site.email }} ({{ site.author }})</managingEditor>
 		<webMaster>{{ site.email }} ({{ site.author }})</webMaster>
-		<copyright>2014-{{ site.time | "%Y" }} {{ site.title }}</copyright>
+		<copyright>2014-{{ site.time | date: '%Y' }} {{ site.title }}</copyright>
 		<pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
 		<lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
 		<image>

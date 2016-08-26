@@ -27,5 +27,6 @@ gems:
 - jekyll-mentions
 - jekyll-redirect-from
 - jekyll-seo-tag
-  
+- jekyll-paginate
+
 jekyll-mentions: https://twitter.com

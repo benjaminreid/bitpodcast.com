@@ -111,6 +111,9 @@ article, footer, [class*="author-"], .comments, form, aside {
 //Footer
 .credit {
   line-height: 1.8em;
+  a {
+    color: $backgrounds;
+  }
 }
 
 // Embeds

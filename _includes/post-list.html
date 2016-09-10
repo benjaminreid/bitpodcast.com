@@ -8,6 +8,8 @@
 					<h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
 					{% include post-meta.html %}
 					{{ page.excerpt | markdownify | truncatewords: 60 }}
+					{% include audio.html %}
+					{% include button.html text="Download" link=page.file %}
 
 				</article>
 			</li>

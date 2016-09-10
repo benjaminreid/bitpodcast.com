@@ -41,13 +41,12 @@ body {
   padding: 1rem 0;
   .container {
     @include flexbox;
-    @include flex-direction(column);
     @include align-items(center);
     text-align: center;
   }
   @include breakpoint(break-1) {
     .container {
-      @include flex-direction(row);
+      @include flex-direction(row-reverse);
       @include justify-content(space-between);
       text-align: inherit;
     }
@@ -117,6 +116,14 @@ body {
   background-position: center;
 }
 
+// header
+
+.header {
+  min-height: 35vh;
+  padding-bottom: .4rem;
+  margin-bottom: 1.6rem;
+  background: $color__site--accent;
+}
 
 // Main content
 .main {

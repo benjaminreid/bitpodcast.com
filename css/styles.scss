@@ -381,3 +381,19 @@ label {
     width: 100%;
   }
 }
+
+// hero
+
+.hero {
+  margin-top: -25vh;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  background-color: #F4F4F4;
+
+  &__content {
+    padding: 1.88rem;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

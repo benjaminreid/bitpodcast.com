@@ -1,32 +1,105 @@
-# Site settings
-title: Bit Podcast
-email: benjaminreid.nouveller@gmail.com
-description: "Bit Podcast is an ongoing series about games, design & development from the mouths of @DavidDarnes and @BenjaminReid"
-baseurl: ""
-url: "https://bitpodcast.com"
-paginate: 5
-paginate_path: "posts/:num"
-logo: "https://pbs.twimg.com/profile_images/378800000000857377/558e6da9b796157ee71eb5ba111dfe56_400x400.png"
+# Site configuration
+# 1. Files excluded from Jekyll builds
+# 2. Installed Gems
+# 3. Gem settings
+# 4. Jekyll settings
+# 5. Collections
+# 6. Jekyll collections settings
+# 7. Site settings
+# 8. Site navigation
 
-twitter:
-  username: BitPodcast
+# 1. Files excluded from Jekyll builds
+exclude:
+- README.md
+- LICENSE
+- CNAME
 
-author:
-  twitter: BitPodcast
-
-# Build settings
-markdown: kramdown
-permalink: pretty
-
-# Podcast settings
-lang: en
-author: David Darnes and Benjamin Reid
-
-# Jekyll plugins
+# 2. Installed Gems
 gems:
+- jekyll-sitemap
 - jekyll-mentions
-- jekyll-redirect-from
-- jekyll-seo-tag
 - jekyll-paginate
+- jekyll-seo-tag
+- jekyll-redirect-from
+- jekyll-feed
+- jemoji
 
-jekyll-mentions: https://twitter.com
+# 3. Gem settings
+paginate: 2 # jekyll-paginate > items per page
+paginate_path: blog/page:num # jekyll-paginate > blog page
+jekyll-mentions: https://twitter.com # jekyll-mentions > service used when @replying
+twitter:
+  username: DavidDarnes # jekyll-seo-tag > Owners twitter username
+author: DavidDarnes # jekyll-seo-tag > default author
+social: # jekyll-seo-tag > social overrides
+  name: David Darnes # jekyll-seo-tag > real name
+  links:  # jekyll-seo-tag > social aliases (sameAs)
+    - https://twitter.com/DavidDarnes
+    - https://www.facebook.com/daviddarnes
+    - https://www.linkedin.com/in/daviddarnes
+    - https://plus.google.com/+DavidDarnes
+    - https://github.com/daviddarnes
+
+# 4. Jekyll settings
+sass:
+  style: compressed # Style compression
+permalink: pretty  # Permalink style (/YYYY/MM/DD/page-name/)
+excerpt_separator: <!-- more --> # Marks end of excerpt in posts
+timezone: Europe/London # Timezone for blog posts and alike
+
+# 5. Collections
+collections:
+  posts:
+    title: Posts # Needed for Siteleaf
+    output: true
+  uploads:
+    title: Uploads # Needed for Siteleaf
+    output: true
+
+# 6. Jekyll collections settings
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      is_page: true # For defining pages from posts
+      layout: page # Default layout
+      image: "/uploads/logo-social.png" # Default image for sharing
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      is_post: true # For defining posts from pages
+      layout: post # Default layout
+      image: "/uploads/logo-social.png" # Default image for sharing
+
+# 7. Site settings
+title: "Alembic" # Site name or title, also used in jekyll-seo-tag
+logo: "/uploads/logo.png" # Site logo, also used in jekyll-seo-tag
+description: "A theme designed to be a starting point for any Jekyll website" # Site description and default description, also used in jekyll-seo-tag
+url: "https://alembic.darn.es" # Site url, also used in jekyll-seo-tag
+repo: "https://github.com/daviddarnes/alembic"
+email: "me@daviddarnes.com"
+disqus: "daviddarnes"
+
+# 8. Site navigation
+navigation_header:
+  Home: /
+  Elements: /elements/
+  Blog: /blog/
+  Contact: /contact/
+  Download: https://github.com/daviddarnes/alembic
+
+navigation_footer:
+  Home: /
+  Download: https://github.com/daviddarnes/alembic
+
+social_links:
+  Twitter: https://twitter.com/DavidDarnes
+  LinkedIn: https://www.linkedin.com/in/daviddarnes
+  GooglePlus: https://plus.google.com/+DavidDarnes
+  GitHub: https://github.com/daviddarnes
+  Email: /contact/
+  link: https://darn.es

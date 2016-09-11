@@ -9,7 +9,7 @@
 					{% include post-meta.html %}
 					{% include audio.html %}
 					{{ page.excerpt | markdownify | truncatewords: 60 }}
-					{% include button.html text="Download" link=page.file %}
+					<p>{% include button.html text="Download" link=page.file %} &nbsp; {% include button.html text="Read show notes" link=page.url %}</p>
 
 				</article>
 			</li>
@@ -29,7 +29,7 @@
 					{% include post-meta.html %}
 					{% include audio.html %}
 					{{ page.excerpt | markdownify | truncatewords: 60 }}
-					{% include button.html text="Download" link=page.file %}
+					<p>{% include button.html text="Download" link=page.file %} &nbsp; {% include button.html text="Read show notes" link=page.url %}</p>
 
 				</article>
 			</li>

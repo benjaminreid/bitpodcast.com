@@ -116,28 +116,17 @@ body {
 }
 
 
-// Feature section
-.feature {
-  min-height: 35vh;
+// header
+.header {
+  min-height: 44vh;
   padding-bottom: .4rem;
-  margin-bottom: 1.6rem;
-  text-align: center;
-  @include flexbox;
-  @include flex-direction(column);
-  @include justify-content(center);
+  margin-bottom: 2.6rem;
   background: $color__site--accent;
   background-size: cover;
   background-position: center;
+  background-blend-mode: multiply;
 }
 
-// header
-
-.header {
-  min-height: 35vh;
-  padding-bottom: .4rem;
-  margin-bottom: 1.6rem;
-  background: $color__site--accent;
-}
 
 // Main content
 .main {
@@ -305,8 +294,6 @@ video {
 
 
 // Form elements and buttons
-button,
-.button,
 input[type="text"],
 input[type="email"],
 input[type="submit"],
@@ -333,21 +320,26 @@ button,
   cursor: pointer;
   display: inline-block;
   position: relative;
-  transition: box-shadow .1s;
-  will-change: box-shadow;
-  box-shadow: inset 0 0 0 2rem transparent;
+  &:before,
+  &:after {
+    position: relative;
+    transition: left .1s, right .1s;
+  }
   &:before {
-    content: "["
+    content: "[";
+    left: 0;
   }
   &:after {
-    content: "]"
+    content: "]";
+    right: 0;
   }
   &:hover {
-    box-shadow: inset 0 0 0 2rem rgba(0,0,0,0.2);
-  }
-  &:active,
-  &:focus {
-    box-shadow: inset 0 0 0 2rem rgba(0,0,0,0.4);
+    &:before {
+      left: -.4rem;
+    }
+    &:after {
+      right: -.4rem;
+    }
   }
 }
 
@@ -395,12 +387,10 @@ label {
   button {
     background-image: none;
     text-shadow: none;
-    color: $color__site--link;
     &:hover,
     &:active,
     &:focus {
       background-image: none;
-      color: $color__site--link--hover;
     }
   }
   hr {
@@ -414,7 +404,7 @@ label {
   margin: 2.4rem;
   @include breakpoint(break-1) {
     margin: 0;
-    margin-top: -38vh;
+    margin-top: -42vh;
   }
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   background-color: $color__site--background;
@@ -431,16 +421,25 @@ label {
 // audio
 
 .audio {
+  margin: .8rem 0 .8rem -.8rem;
+  -webkit-filter: grayscale(100%);
   &::-webkit-media-controls-panel {
     background: none;
   }
 }
 
 .header {
-  .audio {
-    &::-webkit-media-controls-current-time-display,
-    &::-webkit-media-controls-time-remaining-display {
-      color: lighten(invert($color__site--body), 30%);
-    }
+  a {
+    color: lighten(invert($color__site--body), 50%);
   }
+  p {
+    color: lighten(invert($color__site--body), 30%);
+  }
+  .audio {
+    -webkit-filter: grayscale(100%) invert(100%);
+  }
+}
+
+.article--post {
+  margin-bottom: 4rem;
 }

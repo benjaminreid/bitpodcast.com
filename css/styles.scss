@@ -4,13 +4,13 @@ styles: true
 
 // Variables
 $color__site--background: #F4F4F4;
-$color__site--heading: #7A7A7A;
-$color__site--body: darken($color__site--heading, 10%);
+$color__site--body: #7A7A7A;
+$color__site--heading: darken($color__site--body, 5%);
 $color__feature--background: darken($color__site--background, 5%);
-$color__site--captions: lighten($color__site--heading, 50%);
-$color__site--link: #3D3DFC;
+$color__site--captions: lighten($color__site--body, 20%);
+$color__site--link: #5556FE;
 $color__site--link--hover: darken($color__site--link, 10%);
-$color__site--accent: #3D3DFC;
+$color__site--accent: #5556FE;
 
 
 // Frameworks
@@ -19,18 +19,23 @@ $color__site--accent: #3D3DFC;
 @import "syntax";
 @import "flex";
 
+:root {
+  font-size: 12px;
+}
+
 
 // Structural elements
 body {
-  background: $color__site--background;
   height: 100%;
-  display: flex;
+  @include flexbox;
   @include flex-direction(column);
+  background: $color__site--background;
+  color: $color__site--body;
 }
 
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 940px;
   margin: 0 auto;
 }
 
@@ -41,12 +46,13 @@ body {
   padding: 1rem 0;
   .container {
     @include flexbox;
+    @include flex-direction(column);
     @include align-items(center);
     text-align: center;
   }
   @include breakpoint(break-1) {
     .container {
-      @include flex-direction(row-reverse);
+      @include flex-direction(row);
       @include justify-content(space-between);
       text-align: inherit;
     }
@@ -67,10 +73,18 @@ body {
   display: inline-block;
 }
 
+.header {
+  padding: 18vh 0 1rem;
+  .container {
+    @include justify-content(flex-end);
+  }
+}
+
 .footer {
-  background: lighten(invert($color__site--background), 15%);
+  background: $color__site--accent;
+  padding: 2rem 0;
   a {
-    color: invert($color__site--heading);
+    color: lighten(invert($color__site--body), 30%);
     &:hover {
       color: lighten(invert($color__site--body), 15%);
     }
@@ -148,8 +162,8 @@ body {
 .content {
   width: 100%;
   @include breakpoint(break-1) {
-    width: 62%;
-    margin-right: 4%;
+    width: 58%;
+    margin-right: 8%;
     &--full {
       width: 100%;
       margin-right: 0%;
@@ -159,7 +173,7 @@ body {
     }
     &--aside-left {
       margin-right: 0;
-      margin-left: 4%;
+      margin-left: 8%;
       @include order(2);
       .figure--full {
         left: 19.4%;
@@ -203,12 +217,12 @@ body {
 // Links, icons and images
 .link {
   display: inline-block;
-  margin: .2rem;
+  margin: .2rem .4rem;
   .icon {
     display: inline-block;
     transition: fill .1s;
-    min-width: 24px;
-    min-height: 24px;
+    min-width: 20px;
+    min-height: 20px;
     &:hover {
       fill: darken($color__site--link, 10%);
     }
@@ -318,11 +332,16 @@ button,
 .button {
   cursor: pointer;
   display: inline-block;
-  background: $color__site--accent;
   position: relative;
   transition: box-shadow .1s;
   will-change: box-shadow;
   box-shadow: inset 0 0 0 2rem transparent;
+  &:before {
+    content: "["
+  }
+  &:after {
+    content: "]"
+  }
   &:hover {
     box-shadow: inset 0 0 0 2rem rgba(0,0,0,0.2);
   }
@@ -376,12 +395,12 @@ label {
   button {
     background-image: none;
     text-shadow: none;
-    color: lighten(invert($color__site--body), 15%);
+    color: $color__site--link;
     &:hover,
     &:active,
     &:focus {
       background-image: none;
-      color: lighten(invert($color__site--body), 15%);
+      color: $color__site--link--hover;
     }
   }
   hr {
@@ -392,12 +411,16 @@ label {
 // hero
 
 .hero {
-  margin-top: -25vh;
+  margin: 2.4rem;
+  @include breakpoint(break-1) {
+    margin: 0;
+    margin-top: -38vh;
+  }
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-  background-color: #F4F4F4;
+  background-color: $color__site--background;
 
   &__content {
-    padding: 1.88rem;
+    padding: 1rem 1.88rem 2rem;
 
     p:last-child {
       margin-bottom: 0;
@@ -407,6 +430,17 @@ label {
 
 // audio
 
-.audio-player {
-  margin-bottom: 1rem;
+.audio {
+  &::-webkit-media-controls-panel {
+    background: none;
+  }
+}
+
+.header {
+  .audio {
+    &::-webkit-media-controls-current-time-display,
+    &::-webkit-media-controls-time-remaining-display {
+      color: lighten(invert($color__site--body), 30%);
+    }
+  }
 }

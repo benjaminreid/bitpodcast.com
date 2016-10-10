@@ -131,3 +131,9 @@ article, footer, [class*="author-"], .comments, form, aside {
         height: 100%;
     }
 }
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+}

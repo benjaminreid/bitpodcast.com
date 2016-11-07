@@ -1,32 +1,99 @@
-# Site settings
-title: Bit Podcast
-email: benjaminreid.nouveller@gmail.com
-description: "Bit Podcast is an ongoing series about games, design & development from the mouths of @DavidDarnes and @BenjaminReid"
-baseurl: ""
-url: "https://bitpodcast.com"
-paginate: 5
-paginate_path: "posts/:num"
-logo: "https://pbs.twimg.com/profile_images/378800000000857377/558e6da9b796157ee71eb5ba111dfe56_400x400.png"
+# Site configuration
+# 1. Files excluded from Jekyll builds
+# 2. Installed Gems
+# 3. Gem settings
+# 4. Jekyll settings
+# 5. Collections
+# 6. Jekyll collections settings
+# 7. Site settings
+# 8. Site navigation
 
-twitter:
-  username: BitPodcast
+# 1. Files excluded from Jekyll builds
+exclude:
+- README.md
+- LICENSE
+- CNAME
 
-author:
-  twitter: BitPodcast
-
-# Build settings
-markdown: kramdown
-permalink: pretty
-
-# Podcast settings
-lang: en
-author: David Darnes and Benjamin Reid
-
-# Jekyll plugins
+# 2. Installed Gems
 gems:
+- jekyll-sitemap
 - jekyll-mentions
-- jekyll-redirect-from
-- jekyll-seo-tag
 - jekyll-paginate
+- jekyll-seo-tag
+- jekyll-redirect-from
+- jekyll-feed
+- jemoji
 
-jekyll-mentions: https://twitter.com
+# 3. Gem settings
+paginate: 8 # jekyll-paginate > items per page
+paginate_path: page:num # jekyll-paginate > blog page
+jekyll-mentions: https://twitter.com # jekyll-mentions > service used when @replying
+twitter:
+  username: BitPodcast # jekyll-seo-tag > Owners twitter username
+author:
+- DavidDarnes
+- BenjaminReid
+- Jazzybam # jekyll-seo-tag > default author
+social: # jekyll-seo-tag > social overrides
+  name:
+  - David Darnes
+  - Benjamin Reid
+  - Jamie Gregson # jekyll-seo-tag > real name
+  links:  # jekyll-seo-tag > social aliases (sameAs)
+    - https://twitter.com/BitPodcast
+
+# 4. Jekyll settings
+sass:
+  style: compressed # Style compression
+permalink: pretty  # Permalink style (/YYYY/MM/DD/page-name/)
+excerpt_separator: <!-- more --> # Marks end of excerpt in posts
+timezone: Europe/London # Timezone for blog posts and alike
+
+# 5. Collections
+collections:
+  posts:
+    title: Posts # Needed for Siteleaf
+    output: true
+  uploads:
+    title: Uploads # Needed for Siteleaf
+    output: true
+
+# 6. Jekyll collections settings
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      is_page: true # For defining pages from posts
+      layout: page-aside-left # Default layout
+      image: "/uploads/logo-social.png" # Default image for sharing
+      feature_text: ""
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      is_post: true # For defining posts from pages
+      layout: post # Default layout
+      image: "/uploads/logo-social.png" # Default image for sharing
+      feature_text: ""
+
+# 7. Site settings
+title: "Bit Podcast" # Site name or title, also used in jekyll-seo-tag
+logo: "/uploads/logo.png" # Site logo, also used in jekyll-seo-tag
+description: "Bit Podcast is an ongoing series about games, design & development from the mouths of @DavidDarnes, @BenjaminReid and @Jazzybam." # Site description and default description, also used in jekyll-seo-tag
+url: "https://bitpodcast.com" # Site url, also used in jekyll-seo-tag
+repo: "https://github.com/nouveller/bitpodcast/"
+email: "me@daviddarnes.com"
+
+# 8. Site navigation
+navigation_footer:
+  Follow on Twitter: https://twitter.com/BitPodcast
+  Subscribe on iTunes: https://itunes.apple.com/gb/podcast/bit-podcast/id980882853?mt=2
+  RSS Feed: https://pcr.apple.com/id980882853
+
+social_links:
+  Twitter: https://twitter.com/BitPodcast
+  RSS: https://pcr.apple.com/id980882853
+  iTunes: https://itunes.apple.com/gb/podcast/bit-podcast/id980882853?mt=2

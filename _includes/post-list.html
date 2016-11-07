@@ -1,0 +1,41 @@
+{% if page.url contains "/page" %}
+
+	<ul class="list  list--posts">
+		{% for page in paginator.posts %}
+			<li class="item  item--post">
+				<article class="article  article--post  typeset">
+
+					<h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
+					{% include post-meta.html %}
+					{% include audio.html %}
+					{{ page.excerpt | markdownify | truncatewords: 60 }}
+					<p>{% include button.html text="Download" link=page.file %} &nbsp; {% include button.html text="Read show notes" link=page.url %}</p>
+
+				</article>
+			</li>
+		{% endfor %}
+	</ul>
+
+	{% include post-pagination.html %}
+
+{% else %}
+
+	<ul class="list  list--posts">
+		{% for page in paginator.posts offset: 1 %}
+			<li class="item  item--post">
+				<article class="article  article--post  typeset">
+
+					<h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
+					{% include post-meta.html %}
+					{% include audio.html %}
+					{{ page.excerpt | markdownify | truncatewords: 60 }}
+					<p>{% include button.html text="Download" link=page.file %} &nbsp; {% include button.html text="Read show notes" link=page.url %}</p>
+
+				</article>
+			</li>
+		{% endfor %}
+	</ul>
+
+	{% include post-pagination.html %}
+
+{% endif %}

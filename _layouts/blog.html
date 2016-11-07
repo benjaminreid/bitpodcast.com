@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+{% include site-header.html %}
+
+<main class="main  container">
+
+	<div class="content  content--aside-left">
+
+    <article class="article  article--page  typeset">
+
+      {{ content | markdownify }}
+
+    </article>
+
+    {% include post-list.html %}
+
+  </div>
+
+  {% include site-aside.html %}
+
+</main>
+
+{% include site-footer.html %}

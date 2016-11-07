@@ -1,0 +1,23 @@
+<header class="header"{% if page.feature_image %}style="background-image: url({{ page.feature_image }}){% endif %}">
+  <div class="container">
+    <div class="content  content--aside-left">
+
+      {% if page.is_page %}
+        {% unless page.url contains "/page" %}
+          {% for page in site.posts limit: 1 %}
+            <article class="article  article--post  typeset">
+
+              <h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a></h2>
+              {% include post-meta.html %}
+              {% include audio.html %}
+              {{ page.excerpt | markdownify | truncatewords: 60 }}
+              <p>{% include button.html text="Download" link=page.file %} &nbsp; {% include button.html text="Read show notes" link=page.url %}</p>
+
+            </article>
+          {% endfor %}
+        {% endunless %}
+      {% endif %}
+
+    </div>
+  </div>
+</header>

@@ -436,7 +436,8 @@ label {
     color: lighten(invert($color__site--body), 30%);
   }
   .audio {
-    -webkit-filter: grayscale(100%) invert(100%);
+    -webkit-filter: grayscale(100%);
+    background-color: #FFF;
   }
 }
 

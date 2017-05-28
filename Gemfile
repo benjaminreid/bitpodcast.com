@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Make sure Jekyll 3.3 is running
-gem "jekyll", "~> 3.3"
+gem "jekyll", "~> 3.4"
 
 # The plugins for the site
 group :jekyll_plugins do

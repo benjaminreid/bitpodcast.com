@@ -30,7 +30,7 @@ paginate_path: page:num # jekyll-paginate > blog page
 jekyll-mentions: https://twitter.com # jekyll-mentions > service used when @replying
 twitter:
   username: BitPodcast # jekyll-seo-tag > Owners twitter username
-author:
+authors:
 - DavidDarnes
 - BenjaminReid
 - Jazzybam # jekyll-seo-tag > default author

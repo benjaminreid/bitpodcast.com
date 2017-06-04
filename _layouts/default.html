@@ -8,9 +8,10 @@
 			<meta name="robots" content="noindex">
 		{% endif %}
 
-		{% seo %}
+		{% capture seo %}{% seo %}{% endcapture %}
+		{{ seo | replace: "summary_large_image", "summary" }}
 
-    <link rel="stylesheet" href="/css/styles.css">
+    		<link rel="stylesheet" href="/css/styles.css">
 
 		{% include site-favicons.html %}
 	</head>

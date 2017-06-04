@@ -86,6 +86,7 @@ description: "Bit Podcast is an ongoing series about games, design & development
 url: "https://bitpodcast.com" # Site url, also used in jekyll-seo-tag
 repo: "https://github.com/nouveller/bitpodcast/"
 email: "me@daviddarnes.com"
+avatarurl: "/uploads/logo.png"
 
 # 8. Site navigation
 navigation_footer:

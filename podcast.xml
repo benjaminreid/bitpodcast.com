@@ -34,7 +34,7 @@ layout:
 
 </itunes:owner>
 
-<itunes:image href="{{ site.url }}/images/itunes.png" />
+<itunes:image href="{{ site.url }}/uploads/logo.png" />
 
 <itunes:category text="Design, Development &amp; Games" />
 

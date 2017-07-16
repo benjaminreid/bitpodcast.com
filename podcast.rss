@@ -27,7 +27,7 @@ layout:
 			<itunes:name>{{ site.author }}</itunes:name>
 			<itunes:email>{{ site.email }}</itunes:email>
 		</itunes:owner>
-		<itunes:image href="{{ site.url }}/images/itunes.png" />
+		<itunes:image href="{{ site.url }}/uploads/logo.png" />
 		<itunes:category text="Arts">
 			<itunes:category text="Design" />
 		</itunes:category>

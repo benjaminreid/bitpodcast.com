@@ -34,7 +34,7 @@ layout:
 
 </itunes:owner>
 
-<itunes:image href="{{ site.url }}/uploads/logo.svg" />
+<itunes:image href="{{ site.url }}/uploads/logo.png" />
 
 <itunes:category text="Design, Development &amp; Games" />
 
@@ -58,7 +58,7 @@ layout:
 
 		<itunes:summary>{{ post.content | xml_escape }}</itunes:summary>
 
-		<itunes:image href="{{ site.url }}/uploads/logo.svg" />
+		<itunes:image href="{{ site.url }}/uploads/logo.png" />
 
 		<enclosure url="{{ post.file_itunes }}" length="{{ post.length }}" type="audio/x-m4a" />
 
